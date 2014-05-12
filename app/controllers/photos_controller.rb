@@ -59,6 +59,15 @@ class PhotosController < ApplicationController
     redirect_to photos_path
   end
 
+# adding search method for photo search
+  def search
+    event_id
+    @search = SimpleSearch.new SimpleSearch.get_params(params)
+    if @search.valid?
+      @photos = @search.search_within Photo.all, :created_at
+    end
+  end
+
   private
     def photo_params
       params.require(:photo).permit(:name, :image)

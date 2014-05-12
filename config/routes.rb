@@ -10,8 +10,15 @@ PhotoStream::Application.routes.draw do
   get '/upload/:event_id', to: 'photos#new', as: 'upload'
   post '/upload/:event_id', to: 'photos#create', as: 'create_upload'
 
+  #adding search
+
+  # get 'search' => 'photos#search'
+
+
   resources :events do
-    resources :photos
+    resources :photos do
+      get 'search', on: :collection
+    end
   end
   
   resources :users, :sessions

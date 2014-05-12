@@ -1,0 +1,26 @@
+<div class="row">
+	<h1>Photo Search</h1>
+
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<tr>
+				<th>Photo Title</th>
+				<th>Date Added</th>
+				<th>View Photo</th>
+			</tr>
+
+			<% @event.photos.each do |photo| %>
+			
+				<tr>
+					<td><%= photo.image_file_name %></td>
+			
+					<td><%= photo.created_at %></td>
+
+					<td><%= link_to "View Photo", "/events/#{photo.event_id}/photos/#{photo.id}" %>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<%= link_to "PhotoStream", event_photos_path(@event), class: "btn btn-success btn-sm photoUpload" %>
+</div>

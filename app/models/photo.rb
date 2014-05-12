@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+  # attr_accessor :created_at
+
   belongs_to :event
 
   has_attached_file :image, styles: {
