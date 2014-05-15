@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
   respond_to :json
 
   before_filter :signed_in_user, only: [:destroy]
+  # before_filer :event_id
 
   def index
     event_id 
@@ -64,7 +65,7 @@ class PhotosController < ApplicationController
     event_id
     @search = SimpleSearch.new SimpleSearch.get_params(params)
     if @search.valid?
-      @photos = @search.search_within Photo.all, :created_at
+      @photos = @search.search_within Photo.all, :image_file_name
     end
   end
 
