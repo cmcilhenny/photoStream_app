@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
 
    #using map to create an array that holds the image urls
     arrayPhotos = @event.photos.map do |photo|
-        photo.image.url
+      photo.image.url
     end
     #storing array to pass into javascript
     gon.arrayPhotos = arrayPhotos
@@ -44,7 +44,7 @@ class PhotosController < ApplicationController
     event_id
     #create a new photo 
     @photo = @event.photos.new photo_params
-    #the if photo save, saves the photo if the above two lines run and redirect you to a page to view the individual photo, plus confirmation message.
+    #if photo save, saves the photo if the above two lines run and redirect you to a page to view the individual photo, plus confirmation message.
     if @photo.save
       redirect_to event_photo_path(@event, @photo), notice: 'Your photo has been added!'
     #if save doesn't work, communicate it didn't work and redirect to upload page.
@@ -75,6 +75,6 @@ class PhotosController < ApplicationController
     end
     # new method to DRY up code.
     def event_id 
-       @event = Event.find(params[:event_id])
+      @event = Event.find(params[:event_id])
     end
 end
