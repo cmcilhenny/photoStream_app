@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find(params[:id])
+    event = Event.find(params[:custom_url])
     event.delete
     redirect_to '/events'
   end
