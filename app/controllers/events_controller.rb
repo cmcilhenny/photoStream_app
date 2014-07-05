@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     if event.save
       redirect_to '/events'
     else
-      flash[:error] = "That event name already exits. Please enter a unique name."
+      flash[:error] = "Something went wrong. Please enter a unique event name and custom ."
       redirect_to '/events/new'
     end
   end
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.where(custom_url: params[:custom_url]).first
   end
 
   def destroy
@@ -34,13 +34,13 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @event = Event.where(custom_url: params[:custom_url]).first
   end
 
   def update
-    event = Event.find(params[:id])
+    event = Event.where(custom_url: params[:custom_url]).first
     event.update_attributes event_params
-    redirect_to(event)
+    redirect_to(show_event_path(event.custom_url))
   end
 
   private
