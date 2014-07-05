@@ -18,10 +18,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-12 ">
-					<% flash.each do |key, value| %>
-						<div class="alert alert-<%=key%>"><%=value%></div>
-					<% end %>	
+					<%= render 'layouts/flash_messages' %>
 					<%= yield %>
+
+					<%= render 'layouts/footer' %>
 				</div>
 	    </div>
 	  </div>
