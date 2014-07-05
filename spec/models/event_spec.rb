@@ -43,4 +43,18 @@ describe Event do
 
   end
 
+  describe 'custom_url for event' do
+
+    it 'should not be empty' do
+      event = FactoryGirl.build(:event, custom_url: nil)
+      event.should_not be_valid
+    end
+
+    it 'should be unique in database' do
+      event = FactoryGirl.create(:event)
+      event2 = FactoryGirl.build(:event, custom_url: event.custom_url)
+      event2.should_not be_valid
+    end
+  end
+
 end
