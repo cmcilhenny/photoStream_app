@@ -15,8 +15,8 @@ PhotoStream::Application.routes.draw do
   get '/signin', to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
-  get '/upload/:custom_url', to: 'photos#new', as: 'upload'
-  post '/upload/:event_id.custom_url', to: 'photos#create', as: 'create_upload'
+  get '/upload/:event_id', to: 'photos#new', as: 'upload'
+  post '/upload/:event_id', to: 'photos#create', as: 'create_upload'
 
   get '/events/:custom_url', to: 'events#show', as: 'show_event'
   get '/events/:custom_url/edit', to: 'events#edit', as: 'edit_event'

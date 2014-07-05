@@ -1,4 +1,4 @@
-<%= form_for [@event, @photo] do |f|%>
+<%= form_for @photo, url: create_upload_path(@event.custom_url) do |f|%>
 		<h2><%= label_tag(:image, "Photo Upload: ")%></h2>
 		<%= f.file_field :image %>
 		<%= f.submit "Upload Photo", class: "btn btn-success photoUpload" %> 

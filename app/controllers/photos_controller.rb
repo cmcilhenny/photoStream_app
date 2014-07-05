@@ -46,7 +46,7 @@ class PhotosController < ApplicationController
     @photo = @event.photos.new photo_params
     #if photo save, saves the photo if the above two lines run and redirect you to a page to view the individual photo, plus confirmation message.
     if @photo.save
-      redirect_to event_photo_path(@event, @photo), notice: 'Your photo has been added!'
+      redirect_to event_photo_path(@event.custom_url, @photo), notice: 'Your photo has been added!'
     #if save doesn't work, communicate it didn't work and redirect to upload page.
     else
       flash[:error]='Something went wrong. Please try again.'
@@ -74,7 +74,7 @@ class PhotosController < ApplicationController
       params.require(:photo).permit(:name, :image)
     end
     # new method to DRY up code.
-    def event_id 
-      @event = Event.find(params[:event_id])
+    def event_id
+      @event = Event.where(custom_url: params[:event_id]).first
     end
 end
