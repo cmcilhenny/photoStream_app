@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :event_date, presence: true
   validates :user_id, presence: true
-  # validates_uniqueness_of :
+  validates_uniqueness_of :custom_url
 
   # TODO: fix date validation and rspec
 
