@@ -13,9 +13,9 @@
 
 			<% @events.each do |event| %>
 				<tr>
-					<td><%= link_to event.name, event_path(event.id) %></td>
+					<td><%= link_to event.name, event_path(event.custom_url) %></td>
 					<td><%= event.event_date.to_s %></td>
-					<!-- <td><%= link_to "/upload/#{event.id}", event_photos_path(event.id)%></td><br> -->
+					<!-- <td><%= link_to "/upload/#{event.custom_url}", event_photos_path(event.id)%></td><br> -->
 					<td><%= event.photos.count %></td>
 					
 				</tr>

@@ -1,6 +1,6 @@
 <h1>Edit Event</h1>
 
-<%= form_for @event do |f| %>
+<%= form_for @event, url: update_event_path(@event.custom_url) do |f| %>
 
 	<%= label_tag :name, "Event Name" %>
 	<%= f.text_field :name %>

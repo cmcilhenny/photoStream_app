@@ -1,7 +1,7 @@
 <%= image_tag @photo.image.url(:medium) %><br>
 
 
-<%= link_to "Upload New Photo", new_event_photo_path(@event), class: "btn btn-primary btn-sm photoUpload"%>
+<%= link_to "Upload New Photo", new_event_photo_path(@event.custom_url), class: "btn btn-primary btn-sm photoUpload"%>
 
-<%= link_to "PhotoStream", event_photos_path(@event), class: "btn btn-success btn-sm photoUpload" %>
+<%= link_to "PhotoStream", event_photos_path(@event.custom_url), class: "btn btn-success btn-sm photoUpload" %>
 

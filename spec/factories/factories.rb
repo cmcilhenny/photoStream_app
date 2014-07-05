@@ -5,10 +5,15 @@ FactoryGirl.define do
   sequence :email do |n|
     "email#{n}@email.com"
   end
+
+  sequence :custom_url do |n|
+    "test#{n}"
+  end
   
   factory :event do
     name "New Event"
     event_date "20140607"
+    custom_url
     user
   end
 
