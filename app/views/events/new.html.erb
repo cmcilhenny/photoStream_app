@@ -1,10 +1,12 @@
-<h1>Photo Stream New Event</h1>
+<h1>New Event</h1>
 
 <%= form_for @event do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name, class: "form-control"%><br>
 	<%= f.label :event_date %>
-	<%= f.date_select :event_date, class: "form-control"%>
+	<%= f.date_select :event_date, class: "form-control"%><br>
+	<%= f.label :custom_url %>
+	<%= f.text_field :custom_url, class: "form-control"%><br>
 	<%= f.submit %>
 
 <% end %>
