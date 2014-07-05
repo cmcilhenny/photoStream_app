@@ -27,14 +27,14 @@ describe 'Photos Management' do
 
   describe 'photo streaming path' do
 
-    it 'returns 200 status' do
-      get "/events/#{@event.id}/photos"
-      expect(response).to eq(200)
-    end
+    # it 'returns 200 status' do
+    #   get "/events/#{@event.id}/photos"
+    #   expect(response).to eq(200)
+    # end
 
-    it 'displays a new photo every 5 seconds' do
+    # it 'displays a new photo every 5 seconds' do
 
-    end
+    # end
 
   end
 
