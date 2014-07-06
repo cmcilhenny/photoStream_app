@@ -2,7 +2,7 @@ PhotoStream::Application.routes.draw do
   #root 'sessions#new'
   root 'sessions#index'
 
-  resources :events, only: [:index, :destroy, :new, :create] do
+  resources :events, only: [:index, :new, :create] do
     resources :photos do
       get 'search', on: :collection
     end
@@ -22,6 +22,7 @@ PhotoStream::Application.routes.draw do
   get '/events/:custom_url/edit', to: 'events#edit', as: 'edit_event'
   put '/events/:custom_url', to: 'events#update'
   patch '/events/:custom_url', to: 'events#update', as: 'update_event'
+  delete '/events/:custom_url', to: 'events#destroy', as: 'delete_event'
 
   #adding search
   # get 'search' => 'photos#search'
