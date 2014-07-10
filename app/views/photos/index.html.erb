@@ -7,10 +7,10 @@
 			<%= image_tag src="spinnerLarge.gif", id:"imageSwap", class: "img-responsive spinner" %>
 		<%else %>
 			<p>No photos uploaded yet...</p>
-			<%= link_to "Upload Photos", new_event_photo_path(@event), class: "btn btn-primary btn-sm"%>
+			<%= link_to "Upload Photos", new_event_photo_path(@event.custom_url), class: "btn btn-primary btn-sm"%>
 		<%end%>
 	</div>
 
-	<%= link_to "Exit", event_path(@event), class: "btn btn-warning btn-sm pull-right exitButton" %>
+	<%= link_to "EXIT", show_event_path(@event.custom_url), class: "btn btn-warning btn-sm pull-left exitButton" %>
 
 </div>

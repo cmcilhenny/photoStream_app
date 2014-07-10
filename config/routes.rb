@@ -25,7 +25,7 @@ PhotoStream::Application.routes.draw do
   delete '/events/:custom_url', to: 'events#destroy', as: 'delete_event'
 
   #adding search
-  # get 'search' => 'photos#search'
+  get '/events/:custom_url/photos/search', to: 'photos#search', as: 'photo_search'
 
 end
 
