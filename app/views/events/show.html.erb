@@ -1,25 +1,29 @@
-<h1><%= @event.name %></h1><br>
 
-<p> EVENT DATE: <%= @event.event_date.strftime("%B %-d, %Y") %> </p>
-<p><strong> PHOTOS: <%= @event.photos.empty? ? "No current photos": @event.photos.length %></strong></p>
+<div class="row">
+	<div class="col-xs-12 text-center">
+		<h1><%= @event.name %></h1>			
+		<h4><%= @event.event_date.strftime("%B %-d, %Y") %></h4>
+		<% if @event.photos.length > 1 %>
+			<%= link_to 'Stream Photos', event_photos_path(@event.custom_url), class: "btn btn-success btn-lg stream" %>
+		<%end%>
+		<h3> Add Photos: 
+		<%= link_to "/upload/#{@event.custom_url}", upload_path(@event.custom_url) %></h3>
+		<p class="lead"> There are <%= @event.photos.empty? ? "No current photos": @event.photos.length %> photos associated with this event. </p>
+	</div>
+</div>
 
-<!-- adding a shortened url for uploading photos -->
-<h3> Photo Upload: 
-<%= link_to "/upload/#{@event.custom_url}", upload_path(@event.custom_url) %></h3><br>
+<div class"row">
+	<div class="col-xs text-center">
+		<ul class="nav nav-pills nav-stacked">
+			<li><p class="lead"><a href="mailto:?subject=Use this link to upload photos&body=LINK: <%=upload_url(@event.custom_url)%>">Email Upload Link</a></p></li>
+			<li><p class="lead"><%= link_to 'Edit Event Details', edit_event_path(@event.custom_url)%></p></li>
+			<li><p class="lead"><%= link_to 'Delete Event', delete_event_path(@event.custom_url), :method => :delete, :confirm => 'Are you sure?'%></p></li>
+			<li><p class="lead"><%= link_to 'Search Photos', photo_search_path(@event.custom_url)%></p></li>
+		</ul>
+	</div>
+</div>	
 
-<% if @event.photos.length > 1 %>
-<%= link_to 'Stream Photos', event_photos_path(@event.custom_url), class: "btn btn-success btn-lg stream" %>
-<%end%><br><br><br>
 
-<a href="mailto:?subject=Use this link to upload photos&body=LINK: <%=upload_url(@event.custom_url)%>">Email Upload Link</a><br>
-
-<%= link_to 'Edit', edit_event_path(@event.custom_url)%><br>
-
-<%= link_to 'Delete Event', delete_event_path(@event.custom_url), :method => :delete, :confirm => 'Are you sure?'%><br>
-			<!-- <span class="glyphicon glyphicon-trash"></span>
-			<%# end %> -->
-
-<%= link_to 'Search Photos', photo_search_path(@event.custom_url)%>
 
 
 <!-- TODO: add a line that tells you when the last photo was added (photoStream last updated at: XXX) -->
