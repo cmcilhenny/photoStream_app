@@ -1,6 +1,6 @@
 
 <div class="row">
-	<h1>Event Index</h1>
+	<h1 class="text-center">My Events</h1>
 
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -13,10 +13,10 @@
 
 			<% @events.each do |event| %>
 				<tr>
-					<td><%= link_to event.name, show_event_path(event.custom_url) %></td>
-					<td><%= event.event_date.strftime("%B %-d, %Y") %></td>
+					<td class="lead"><%= link_to event.name, show_event_path(event.custom_url) %></td>
+					<td class="lead"><%= event.event_date.strftime("%B %-d, %Y") %></td>
 					<!-- <td><%= link_to "/upload/#{event.custom_url}", event_photos_path(event.id)%></td><br> -->
-					<td><%= event.photos.count %></td>
+					<td class="lead"><%= event.photos.count %></td>
 					
 				</tr>
 			<% end %>
